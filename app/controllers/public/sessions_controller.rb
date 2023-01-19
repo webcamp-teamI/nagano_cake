@@ -1,6 +1,21 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+    protected
+
+def after_sign_in_path_for(resource)
+ #homesトップへさせる
+customer_home_path
+
+end
+
+
+
+def after_sign_out_path_for(resource)
+ #homesトップへさせる
+new_customer_session_path
+
+end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
