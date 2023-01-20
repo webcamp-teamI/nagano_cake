@@ -1,4 +1,8 @@
-<% if user_signed_in? %>
+<div class="user_header">
+  <h1>nagano_cake</h1>
+
+  <ul class="navbar-nav ml-auto">
+    <% if customer_signed_in? %>
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>
               マイページ
@@ -40,4 +44,6 @@
               ログイン
             <% end %>
           </li>
-        <% end %>
+    <% end %>
+  </ul>
+</div>
