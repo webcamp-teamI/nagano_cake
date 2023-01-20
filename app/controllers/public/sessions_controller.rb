@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
 
 def after_sign_in_path_for(resource)
  #homesトップへさせる
-customer_home_path
+customers_home_path
 
 end
 
