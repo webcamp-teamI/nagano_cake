@@ -1,2 +1,49 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<h1>会員情報編集</h1>
+
+<%= form_with model: @customer, url: customers_path(@customer), method: :patch do |f| %>
+  <!--render "public/shared/error_messages", resource: resource -->
+
+
+  <h4>氏名</h4>
+  <div class="field">
+    <%= f.label :"(性)" %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+
+  <div class="field">
+    <%= f.label :"(名)" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+
+  <h4>フリガナ</h4>
+  <div class="field">
+    <%= f.label :"(セイ)" %>
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+
+  <div class="field">
+    <%= f.label :"(メイ)" %>
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+
+  <div class="field">
+    <%= f.label :"メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"郵便番号(ハイフンなし)" %><br />
+    <%= f.number_field :address_number, autofocus: true, autocomplete: "address_number" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"住所" %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"電話番号(ハイフンなし)" %><br />
+    <%= f.number_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+  </div>
+
+<div class="form-group">
+  <%= f.submit '編集を保存' %>
+<% end %>
+
+<%= link_to '退会する', customers_confirm_path %>
