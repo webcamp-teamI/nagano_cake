@@ -1,0 +1,21 @@
+<h2>会員一覧</h2>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+    </tr>
+    <% @customers.each do |customer| %>
+    <tr>
+        <tb><%= customer.id %></tb>
+        <tb><%= link_to admin_customer_path(customer.id) do %>
+                <%= customer.last_name %><%= customer.first_name %>
+            <% end %>
+        </tb>
+        <tb><%= customer.email %></tb>
+        <tb>ステータス</tb>
+        <!--ステータス要変更-->
+    </tr>
+    <% end %>
+</table>
