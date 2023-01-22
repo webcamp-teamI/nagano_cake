@@ -1,16 +1,24 @@
  <div class="col-md-8 offset-md-1">
   <h2>商品詳細</h2>
 
+       <%= image_tag @item.image %>
+
        <p>商品名</p>
        <%= @item.name %>
 
        <p>商品説明</p>
        <%= @item.detail %>
 
-      <!--<td>ジャンル配置予定</td>-->
+       <p>ジャンル</p>
+       <%= @item.genre.genre_name %>
 
        <p>税抜価格</p>
        <%= @item.tax_free %>
+       <p>税込価格</p>
+       <%= (@item.tax_free * 1.1).floor %>
 
        <p>販売ステータス</p>
-       <%= @item.is_active %>
+       <%= @item.is_active ? '販売中' : '販売停止中'  %>
+
+
+      <%= link_to "編集する",edit_admin_item_path(@item.id) %>
