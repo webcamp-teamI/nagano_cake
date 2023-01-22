@@ -1,2 +1,17 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<!--<h1>Public::Items#index</h1>-->
+<h4>商品一覧</h4>
+
+<!--ジャンル検索のテンプレートがどこかに入る-->
+<tbody>
+  <!--商品一覧-->
+  <% @items.each do |item| %>
+  <!--画像をクリックしたら詳細ページに遷移するようにする-->
+    <td>
+      <%= link_to image_tag item.image.get_item_image, size:"200x200", item_path(item.id) do %>
+      <% end %>
+    </td>
+    <td><%= item.name %></td>
+    <td>￥<%= (item.tax_free * 1.1).floor %></td>
+  <% end %>
+</tbody>
+<%#= image_tag item.image, size:"200x200" %>
