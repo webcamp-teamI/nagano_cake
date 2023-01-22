@@ -1,38 +1,45 @@
 
       <h2 class="mt-3">商品新規登録</h2>
-   <%= form_with model: @tem, url:admin_items_path, local:true do |f| %>
+
+   <%= form_with model: @item, url:admin_items_path, local:true do |f| %>
+
    <div class="form-group">
-    <h5>商品名</h5>
+    <h5>商品画像</h5>
       <%= f.file_field :image, accept: "image/*" %>
    </div>
+
    <div class="form-group">
     <h5>商品名</h5>
      <%= f.text_field :name %>
    </div>
+
    <div class="form-group">
     <h5>商品説明</h5>
      <%= f.text_area :detail %>
 
    </div>
-   <div class="form-group">
-    <h5>ジャンル(未実装)</h5>
-     <%= f.text_area :genre_id %>
-   </div>
 
+ 　  <div class="form-group">
+    <h5>ジャンル</h5>
+     <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name) %>
+    </div>
 
-   </div>
    <div class="form-group">
     <h5>税抜価格</h5>
      <%= f.text_area :tax_free %>円
    </div>
+
    <div class="form-group">
     <h5>販売ステータス</h5>
-     <%= f.select :is_active ,[['販売中',true],['販売停止中',false]] %>
+     <%= f.radio_button :is_active, "true" %>
+     <%= f.label :is_active, "販売中" %>
+     <%= f.radio_button :pis_active, "false" %>
+     <%= f.label :pis_active, "販売停止中" %>
    </div>
-
 
    <div class="form-group">
      <%= f.submit '新規登録' %>
    </div>
+
    <% end %>
   </div>
