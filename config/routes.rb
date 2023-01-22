@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     get 'about' => "homes#about", as: "about"
     root to: "homes#top"
     resources :items, only: [:show, :index]
-    resource :customers, only: [:edit, :update, :destroy]
+    resource :customers, only: [:edit, :update,]
+    patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     get 'customers/confirm' => 'customers#confirm'
     get 'customers' => 'customers#show'
     resources :carts, only: [:index, :update, :destroy, :create]
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
     post 'orders/check' => 'orders#check'
     get 'orders/complete' => 'orders#complete'
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
+    
+    
   end
 
   # 管理者側のルーティング設定
