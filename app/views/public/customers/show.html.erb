@@ -1,26 +1,25 @@
-<h2>マイページ</h2>
+<h3>マイページ</h3>
 
-<h2>登録情報</h2>
+<h3>登録情報</h3>
 
 <%= link_to '編集する', edit_customers_path %>
 
-<%= @customer.last_name %>
-
-<%= @customer.first_name %>
-
-      <!--<td>ジャンル配置予定</td>-->
-<%= @customer.last_name_kana %>
-
-<%= @customer.first_name_kana %>
-
-<%= @customer.address %>
-
-<%= @customer.phone_number %>
-
-<%= @customer.address_number %>
-
-<%= @customer.email %>
+<table>
+  <tbody>
+    <tr>
+      <tb><%= @customer.last_name %></tb>
+      <tb><%= @customer.first_name %></tb>    
+      <tb><%= @customer.last_name_kana %></tb>
+      <tb><%= @customer.first_name_kana %></tb>
+      <tb><%= @customer.address %></tb>
+      <tb><%= @customer.phone_number %></tb>    
+      <tb><%= @customer.address_number %></tb>    
+      <tb><%= @customer.email %></tb>    
+    </tr>
+  </tbody>
+</table>
 
 
-配送先 <%= link_to '一覧を見る', deliveries_path %>
-注文履歴 <%= link_to '一覧を見る', orders_path %>
+
+<h3>配送先</h3> <%= link_to '一覧を見る', deliveries_path %>
+<h3>注文履歴</h3> <%= link_to '一覧を見る', orders_path %>
