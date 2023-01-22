@@ -7,11 +7,15 @@
   <% @items.each do |item| %>
   <!--画像をクリックしたら詳細ページに遷移するようにする-->
     <td>
-      <%= link_to image_tag item.image.get_item_image, size:"200x200", item_path(item.id) do %>
+      <%= link_to item_path(item.id) do %>
+      <%= image_tag item.get_item_image(150,150) %><br>
       <% end %>
+
+
     </td>
     <td><%= item.name %></td>
-    <td>￥<%= (item.tax_free * 1.1).floor %></td>
+    <td><%= (item.tax_free * 1.1).floor %></td>
   <% end %>
 </tbody>
 <%#= image_tag item.image, size:"200x200" %>
+
