@@ -1,6 +1,6 @@
 <h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h1>
 
-<%= form_with model: @customer, url: customers_path(@customer), method: :patch do |f| %>
+<%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
   <!--render "public/shared/error_messages", resource: resource -->
 
 <div class="form-group">
@@ -44,9 +44,16 @@
     <%= f.number_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
   </div>
   
-    <div class="field">
+  <div class="field">
     <%= f.label :"メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.radio_button :is_end, "true" %>
+    <%= f.label :is_end, "有効" %>
+    <%= f.radio_button :pis_end, "false" %>
+    <%= f.label :pis_end, "退会" %>
   </div>
 </div>
 

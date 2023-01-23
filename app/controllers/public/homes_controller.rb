@@ -5,5 +5,6 @@ class Public::HomesController < ApplicationController
   end
 
   def about
+    @customer = current_customer
   end
 end

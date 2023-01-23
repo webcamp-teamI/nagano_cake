@@ -1,21 +1,52 @@
 <h2>会員一覧</h2>
-<table border="1" cellspacing="0" cellpadding="0">
+
+<div>
+  <p>会員ID</p>
+  <p>氏名</p>
+  <p>メールアドレス</p>
+  <p>ステータス</p>
+</div>
+
+<% @customers.each do |customer| %>
+  <div>
+    <p><%= customer.id %></p>
+    <p>
+      <%= link_to admin_customer_path(customer.id) do %>
+        <%= customer.last_name %><%= customer.first_name %>
+      <% end %>
+    </p>
+    <p><%= customer.email %></p>
+    <p><%= customer.is_end ? '有効' : '退会' %></p>
+  </div>
+<% end %>
+<%= paginate @customers %>
+
+<!--テーブルタグを使用するとデータがタイトルの上に飛び出してしまう-->
+ <table>
+   <thead>
     <tr>
-        <th>会員ID</th>
-        <th>氏名</th>
-        <th>メールアドレス</th>
-        <th>ステータス</th>
+     <th>会員ID</th>
+     <th>氏名</th>
+     <th>メールアドレス</th>
+     <th>ステータス</th>
     </tr>
-    <% @customers.each do |customer| %>
-    <tr>
-        <tb><%= customer.id %></tb>
-        <tb><%= link_to admin_customer_path(customer.id) do %>
-                <%= customer.last_name %><%= customer.first_name %>
-            <% end %>
-        </tb>
-        <tb><%= customer.email %></tb>
-        <tb>ステータス</tb>
-        <!--ステータス要変更-->
-    </tr>
-    <% end %>
+   </thead>
+
+
+ <% @customers.each do |customer| %>
+
+  <tbody>
+   <tr>
+    <tb><%= customer.id %></tb>
+    <tb>
+      <%= link_to admin_customer_path(customer.id) do %>
+        <%= customer.last_name %><%= customer.first_name %>
+      <% end %>
+    </tb>
+    <tb><%= customer.email %></tb>
+    <tb><%= customer.is_end ? '有効' : '退会' %></tb>
+   </tr>
+  </tbody>
+ <% end %>
 </table>
+
