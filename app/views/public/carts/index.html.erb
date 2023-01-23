@@ -1,2 +1,34 @@
-<h1>Public::Carts#index</h1>
-<p>Find me in app/views/public/carts/index.html.erb</p>
+<h1>ショッピングカート</h1>
+<td><%= link_to "カートを空にする", carts_destroy_all_path, method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+
+   <table class="table table-hover table-inverse">
+    <thead>
+     <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+     </tr>
+  </thead>
+   <tbody>
+    <tr>
+     <% sum=0 %>
+     <% @carts.each do |cart| %>
+     <%= form_with model: Cart, url: cart_path(cart.id), local: :patch do |f| %>
+     <td><%= cart.item.name %></td>
+     <td><%= cart.item.with_tax_price %></td>
+     <td><%= cart.count %></td>
+     <td><%= f.select :count, [[1], [2], [3], [4], [5]]  %></td>
+     <td><%= link_to "変更", cart_path(cart.id), method: :patch, "data-confirm" => "本当に変更しますか？" %></td>
+     <td><%= cart.subtotal %></td>
+     <td><%= link_to "削除する", cart_path(cart.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+         <% sum += cart.item.with_tax_price * cart.count %>
+    </tr>
+     <% end %>
+   <% end %>
+
+   </tbody>
+  </table>
+   <h4>合計金額</h4>
+   <%= sum %>

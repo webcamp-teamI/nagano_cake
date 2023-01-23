@@ -1,31 +1,26 @@
 <!--<h1>Public::Items#show</h1>-->
 <h4>商品詳細画面</h4>
 
-  <tbody>
-    <td>
       <%#= link_to image_tag item.image.get_image, size:"200x200", item_path(item.id) do %>
       <%# end %>
-    </td>
-    <td><%= @item.detail %></td>
-    <td><%= @item.name %></td>
-    <td>￥<%= @item.tax_free %>(税込)</td>
-  <% end %>
-  
-  <div>
+    <%= image_tag @item.image %>
+    <%= @item.detail %>
+    <%= @item.name %>
+   ￥<%= @item.tax_free %>(税込)
+
     <!--プルダウン機能作る-->
     <!--入力内容を受け取る定型分、urlでコントローラに情報を送る-->
-    <%= form_with model: @item, url: admin_item_path, local: :true do |f| %>
-    
+    <%= form_with model: @Cart, url: carts_path, local: :true do |f| %>
+
     <!--自信ない-->
+    <%= f.hidden_field :customer_id, :value => current_customer.id %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+
     <div class="form-group">
       <%= f.label :個数選択 %>
-      <%= f.select :amount, [[1], [2], [3], [4], [5]]  %>
+      <%= f.select :count, [[1], [2], [3], [4], [5]]  %>
     </div>
     <div class="form-group">
       <%= f.submit "カートに追加する" %>
     </div>
     <% end %>
-  </div>
-  
-  
-</tbody>
