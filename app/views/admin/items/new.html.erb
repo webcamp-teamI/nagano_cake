@@ -12,13 +12,11 @@
    <div class="form-group">
     <h5>商品説明</h5>
      <%= f.text_area :detail %>
-
    </div>
    <div class="form-group">
     <h5>ジャンル(未実装)</h5>
      <%= f.text_area :genre_id %>
    </div>
-
 
    </div>
    <div class="form-group">
@@ -27,9 +25,12 @@
    </div>
    <div class="form-group">
     <h5>販売ステータス</h5>
-     <%= f.select :is_active ,[['販売中',true],['販売停止中',false]] %>
-   </div>
 
+     <%= f.radio_button :is_active, "true" %>
+     <%= f.label :is_active, "販売中" %>
+     <%= f.radio_button :is_active, "false" %>
+     <%= f.label :is_active, "販売停止中" %>
+   </div>
 
    <div class="form-group">
      <%= f.submit '新規登録' %>
