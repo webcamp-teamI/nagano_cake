@@ -2,7 +2,7 @@
 <h4>商品一覧</h4>
 
 <!--ジャンル検索のテンプレートがどこかに入る-->
-<tbody>
+<table>
   <!--商品一覧-->
   <% @items.each do |item| %>
   <!--画像をクリックしたら詳細ページに遷移するようにする-->
@@ -16,6 +16,10 @@
     <td><%= item.name %></td>
     <td><%= (item.tax_free * 1.1).floor %></td>
   <% end %>
+  
+</table>
+<tbody>
+
 </tbody>
 <%#= image_tag item.image, size:"200x200" %>
 
