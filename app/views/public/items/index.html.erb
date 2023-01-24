@@ -1,33 +1,28 @@
 <!--<h1>Public::Items#index</h1>-->
-<h2>商品一覧 (全<%= @items.count %>件) </h2>
+<h3>商品一覧 (全<%= @items.count %>件) </h3>
 
-<div class="row">
-  <table>
-    <tbody>
-      <% @items.each do |item| %>
-    <tr>
-      <td>
-        <!--画像をクリックしたら詳細ページに遷移するようにする-->
-        <%= link_to item_path(item.id) do %>
-        <%= image_tag item.get_item_image(150,150) %><br>
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>商品名</td>
-      <td><%= item.name %></td>
-    </tr>
-    <tr>
-      <!--ジャンルいる？-->
-      <!--<td><%#= item.genre.genre_name %></td>-->
-    </tr>
-    <tr>
-      <td>金額</td>
-      <td>￥<%= (item.tax_free * 1.1).floor %></td>
-    </tr>
-    <% end %> 
-      
-    </tbody>
-  </table>
-<div>
+<div class="container">
+  <div class="d-flex flex-wrap"> <!--displayのd-->
+    <% @items.each do |item| %>
+      <div class="w-25"> <!--widthのw-->
+        <div>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_item_image(200,200) %><br>
+          <% end %>  
+        </div>
+        <div>
+          商品名
+          <%= item.name %>
+        </div>
+        <!--ジャンルいる？-->
+        <!--<div><%#= item.genre.genre_name %></div>-->
+        <div>
+          金額
+          ￥<%= (item.tax_free * 1.1).floor %>
+        </div>
+        
+      </div>
+    <% end %>
+  <div>
+</div>
 

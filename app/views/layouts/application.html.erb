@@ -9,93 +9,112 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
 
-  <header>
-    <div class="container">
-    NaganoCake
+<header>
+  <div class="border-dark" style="border-bottom: 3px solid">
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container">
+      <a class="navbar-brand" heref="/"></a><span>LOGO</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <% if admin_signed_in? %>
-      <ul>
-        <li>
-          <%=  link_to admin_items_path,class: 'nav-link text-light' do %>
-            商品一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to admin_customers_path,class: 'nav-link text-light' do %>
-            会員一覧
-          <% end %>
-        </li>
-        <li>
-          <%=  link_to orders_path ,class: 'nav-link text-light' do %>
-            注文履歴一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to admin_genres_path,class: 'nav-link text-light' do %>
-            ジャンル一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-light' do %>
-            ログアウト
-          <% end %>
-        </li>
-      </ul>
+      NaganoCake
 
-    <% elsif customer_signed_in? %>
-    
-      <ul>
-        <li>
-          <%= link_to customers_path,class: 'nav-link text-light' do %>
-            マイページ
-          <% end %>
-        </li>
-        <li>
-          <%=  link_to items_path,class: 'nav-link text-light' do %>
-            商品一覧
-        <% end %>
-        </li>
-        <li>
-          <%=  link_to carts_path ,class: 'nav-link text-light' do %>
-            カート
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-light' do %>
-            ログアウト
-          <% end %>
-        </li>
-      </ul>
+      <% if admin_signed_in? %>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto list-unstyled">
+          <!--text-light（文字色）lightを変更しました-->
+          <li>
+            <%=  link_to admin_items_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_customers_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              会員一覧
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to orders_path ,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              注文履歴一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_genres_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              ジャンル一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              ログアウト
+            <% end %>
+          </li>
+        </ul>
+      </div>
 
-    <% else %>
-      <ul>
-        <li>
-          <%= link_to about_path,class: 'nav-link text-light' do %>
-            About
+      <% elsif customer_signed_in? %>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto list-unstyled">
+          <li>
+            <%= link_to customers_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              マイページ
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to items_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              商品一覧
           <% end %>
-        </li>
-        <li>
-          <%= link_to orders_path,class: 'nav-link text-light' do %>
-            商品一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_customer_registration_path,class: 'nav-link text-light' do %>
-            新規登録
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_customer_session_path ,class: 'nav-link text-light' do %>
-            ログイン
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
-  </div>
+          </li>
+          <li>
+            <%=  link_to carts_path ,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              カート
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_customer_session_path, method: :delete,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              ログアウト
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <% else %>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto list-unstyled">
+          <li>
+            <%= link_to about_path,class: 'm-4 nav-link btn btn-outline-secondary' do %> <!--marginのx軸＝mx-1-->
+              About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to orders_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_registration_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_session_path ,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+              ログイン
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <% end %>
+      </div>
+    </nav>
+  </div> <!---->
 </header>
 
 <main>
   <%= yield %>
 </main>
+
+<footer>
+  <!--高さを固定したい場合h-25-->
+  <div class="border-dark fixed-bottom" style="border-top: 3px solid; height: 100px"></div>
+</footer>
