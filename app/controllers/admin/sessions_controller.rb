@@ -5,7 +5,7 @@ class Admin::SessionsController < Devise::SessionsController
 
 def after_sign_in_path_for(resource)
  #商品一覧ページに遷移させる
-root_path
+admin_items_path
 
 end
 
