@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h5 class="alert-secondary d-inline-block font-weight-bold mb-5 ml-5 px-3">Edit <%= resource_name.to_s.humanize %></h5>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "publics/shared/error_messages", resource: resource %>
