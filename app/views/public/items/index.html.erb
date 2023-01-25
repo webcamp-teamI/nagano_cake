@@ -1,28 +1,30 @@
 <!--<h1>Public::Items#index</h1>-->
-<h3>商品一覧 (全<%= @items.count %>件) </h3>
-
 <div class="container">
+  <div class="my-4">
+    <h3>商品一覧 (全<%= @items.count %>件) </h3>
+  </div>
+  
   <div class="d-flex flex-wrap"> <!--displayのd-->
     <% @items.each do |item| %>
       <div class="w-25"> <!--widthのw-->
         <div>
           <%= link_to item_path(item.id) do %>
-            <%= image_tag item.get_item_image(200,200) %><br>
+            <%= image_tag item.get_item_image(300,300) %><br>
           <% end %>  
         </div>
         <div>
           商品名
           <%= item.name %>
         </div>
-        <!--ジャンルいる？-->
-        <!--<div><%#= item.genre.genre_name %></div>-->
         <div>
           金額
           ￥<%= (item.tax_free * 1.1).floor %>
         </div>
-        
       </div>
     <% end %>
+    <div>
+      <%= paginate @items %>
+    </div>
   <div>
 </div>
 
