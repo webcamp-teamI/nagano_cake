@@ -42,13 +42,14 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     cart = current_customer.carts.all # ログインユーザーのカートアイテムをすべて取り出して cart_items に入れます
     #@order = current_customer.orders.new(order_params)# 渡ってきた値を @order に入れます
-    if @order.save
+    if @order.save!
       cart.each do |carts|
         order_detail = OrderDetail.new
-        order_detail.item_id = cart.item_id
+        order_detail.item_id = carts.item.id
         order_detail.order_id = @order.id
-        order_detail.order_count = cart_item.count
-        order_detail.order_payment = cart.item.subtotal
+        order_detail.count = carts.count
+        # order_detail.order_payment = carts.subtotal
+        order_detail.buy_in_tax = carts.item.with_tax_price
         order_detail.save
       end
     end
@@ -65,7 +66,7 @@ class Public::OrdersController < ApplicationController
   
     private
   def order_params
-    params.require(:order).permit(:pay_style, :shipping_cost, :address, :address_number, :address_name)
+    params.require(:order).permit(:pay_style, :shipping_cost, :address, :address_number, :address_name, :payment)
   end
   
 end
