@@ -17,7 +17,7 @@ class Public::DeliveriesController < ApplicationController
     @deliverie = Delivery.find(params[:id])
     @deliverie.update(deliverie_params)
     flash[:notice] = "配送先更新は成功したよ🙃"
-    redirect_to deliverie_path
+    redirect_to deliveries_path
   end
 
   def destroy

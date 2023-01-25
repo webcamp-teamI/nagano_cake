@@ -1,2 +1,39 @@
-<h1>Public::Orders#check</h1>
-<p>Find me in app/views/public/orders/check.html.erb</p>
+<h1>注文情報確認</h1>
+<table>
+    <tr>
+        <th>商品名</th>
+        <th>単価（税込み）</th>
+        <th>数量</th>
+        <th>小計</th>
+    </tr>
+    <tr>
+        <td><% @cart_items.each do |cart_item| %>
+        <%= image_tag cart_item.item.get_item_image(150,150) %><%= cart_item.item.name %></td>
+        <td><%= cart_item.item.tax_free %></td>
+        <td><%= cart_item.count %></td>
+        <td><%= cart_item.item.tax_free * cart_item.count %></td>
+        <% @total = cart_item.item.tax_free * cart_item.count + @total %>
+        <% end %>
+    </tr>
+</table>
+<%= @order.shipping_cost %>
+<%= @total %>
+<%= @order.shipping_cost + @total %>
+<%= @order.pay_style_i18n %>
+<%= @order.address %>
+<%= @order.address_number %>
+<%= @order.address_name %>
+  <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+    <div class="form-group">
+      <%= f.hidden_field :shipping_cost, :value => @order.shipping_cost %>
+      <%= f.hidden_field :pay_style, :value => @order.pay_style %>
+      <%= f.hidden_field :address, :value => @order.address %>
+      <%= f.hidden_field :address_number, :value => @order.address_number %>
+      <%= f.hidden_field :address_name, :value => @order.address_name %>
+      <%= f.submit '注文を確定する' %>
+  <% end %>
+  </div>
+
+
+
+
