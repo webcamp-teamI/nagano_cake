@@ -1,11 +1,11 @@
 class Order < ApplicationRecord
     has_one_attached :image
     
-    belongs_to :user
+    belongs_to :customer
     has_many :order_details, dependent: :destroy
     
     enum pay_style: { credit_card: 0, transfer: 1 }
-    enum status: { 入金待ち: 0, 入金確認: 1, 製作中: 2, 発送準備中: 3, 発送済み: 4 }
+    enum status: { waiting_for_payment: 0, payment_confirmation: 1, in_production: 2, preparing_to_ship: 3, sent: 4 }
     
     def get_item_image(width, height)
       unless image.attached?

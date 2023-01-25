@@ -30,6 +30,7 @@
       <%= f.hidden_field :address, :value => @order.address %>
       <%= f.hidden_field :address_number, :value => @order.address_number %>
       <%= f.hidden_field :address_name, :value => @order.address_name %>
+      <%= f.hidden_field :payment, :value => @total + @order.shipping_cost %>
       <%= f.submit '注文を確定する' %>
   <% end %>
   </div>
