@@ -1,24 +1,35 @@
- <div class="col-md-8 offset-md-1">
-  <h2>商品詳細</h2>
+ <body>
+  <h5 class="alert-secondary d-inline-block font-weight-bold mb-5 ml-5 px-3">商品詳細</h5>
 
-       <%= image_tag @item.image %>
+   <div class="container-fluid w-50 mx-auto">
+    <div class="row">
+     <div class="col">
+      <%= image_tag @item.image %>
+     </div>
+      <div class="col">
+    <table class="table table-striped">
 
-       <p>商品名</p>
-       <%= @item.name %>
+     <tbody>
+      <tr>
+        <td class="border border-1 border-dark", style="width: 500px">商品名</td>
+        <td class="border border-1 border-dark", style="width: 500px"><%= @item.name %></td></tr>
+      <tr>
+        <td class="border border-1 border-dark", style="width: 500px">商品説明</td>
+        <td class="border border-1 border-dark", style="width: 500px"><%= @item.detail %></td></tr>
+      <tr>
+        <td class="border border-1 border-dark", style="width: 500px">ジャンル</td>
+        <td class="border border-1 border-dark", style="width: 500px"><%= @item.genre.genre_name %></td></tr>
+      <tr>
+       <td class="border border-1 border-dark", style="width: 500px">税抜価格<br>(税込価格)</td>
+       <td class="border border-1 border-dark", style="width: 500px"><%= @item.tax_free %>円<br>(<%= (@item.tax_free * 1.1).floor %>円)</td>
+      <tr>
+       <td class="border border-1 border-dark", style="width: 500px">販売ステータス</td>
+       <td class="border border-1 border-dark", style="width: 500px"><%= @item.is_active ? '販売中' : '販売停止中'  %></td>
+    </tbody>
+   </table>
 
-       <p>商品説明</p>
-       <%= @item.detail %>
+      <%= link_to "編集する",edit_admin_item_path(@item.id), class:'btn btn-sm btn-success px-3 ml-3' %>
 
-       <p>ジャンル</p>
-       <%= @item.genre.genre_name %>
-
-       <p>税抜価格</p>
-       <%= @item.tax_free %>
-       <p>税込価格</p>
-       <%= (@item.tax_free * 1.1).floor %>
-
-       <p>販売ステータス</p>
-       <%= @item.is_active ? '販売中' : '販売停止中'  %>
-
-
-      <%= link_to "編集する",edit_admin_item_path(@item.id) %>
+    </div>
+   </div>
+  </div>

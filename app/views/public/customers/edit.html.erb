@@ -1,36 +1,36 @@
-<div class="d-inline ml-5"></div><h6 class="alert-secondary d-inline-block font-weight-bold ml-5 px-3 mb-4">会員情報編集</h6>
+<div class="d-inline ml-5"></div><h6 class="alert-secondary d-inline-block font-weight-bold ml-5 px-3 mb-4 mt-4">会員情報編集</h6>
 
 <%= form_with model: @customer, url: customers_path(@customer), method: :patch do |f| %>
   <!--render "public/shared/error_messages", resource: resource -->
 
-<section class="container">
+<section class="container small">
   <div class="row flex-nowrap">
-    <div class="col-md-3">
-      <h6 class="mb-3">氏名</h6>
+    <div class="col-md-3 col-sm-5">
+      <h6 class="mb-4 mt-2">氏名</h6>
       <h6 class="mb-3">フリガナ</h6>
       <h6 class="mb-3"><%= f.label :"郵便番号(ハイフンなし)" %></h6></h6>
-      <h6 class="mb-3"><%= f.label :"住所" %></h6>
+      <h6 class="mb-2"><%= f.label :"住所" %></h6>
       <h6 class="mb-3"><%= f.label :"電話番号(ハイフンなし)" %></h6>
-      <h6 class="mb-3"><%= f.label :"メールアドレス" %></h6>
+      <h6><%= f.label :"メールアドレス" %></h6>
     </div>
     
-    <div class="col-md-9">
-      <div class="row flex-nowrap">
-        <div class="col-6">
-          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:'mb-2' %>
-          <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class:'mb-2' %>
+    <div class="col-md-9 col-sm-7">
+      <div class="row flex-nowarp">
+        <div class="col-md-3 col-sm-6">
+          <div><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:'mb-3' %></div>
+          <div><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class:'mb-3' %></div>
         </div>
-        <div class="col-6">
-          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:'mb-2' %>
-          <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class:'mb-2' %>
+        <div class="col-md-9 col-sm-6">
+          <div><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:'mb-3' %></div>
+          <div><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class:'mb-3' %></div>
         </div>
       </div>
-      <div class="mb-2"><%= f.text_field :address_number, autofocus: true, autocomplete: "address_number" %></div>
-      <div class="mb-2"><%= f.text_field :address, autofocus: true, autocomplete: "address" %></div>
-      <div class="mb-2"><%= f.number_field :phone_number, autofocus: true, autocomplete: "phone_number" %></div>
+      <div class="mb-3"><%= f.text_field :address_number, autofocus: true, autocomplete: "address_number" %></div>
+      <div class="mb-3"><%= f.text_field :address, autofocus: true, autocomplete: "address" %></div>
+      <div class="mb-3"><%= f.number_field :phone_number, autofocus: true, autocomplete: "phone_number" %></div>
       <div class="mb-3"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
       <div class="form-group">
-      <%= f.submit '編集を保存', class:'btn btn-sm btn-success px-4', style:"width: 250px" %>
+      <%= f.submit '編集内容を保存', class:'btn btn-sm btn-success px-4', style:"width: 25%" %>
       <%= link_to '退会する', customers_confirm_path, class:'btn btn-sm btn-danger ml-5' %>
     </div>
   </div>

@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 2023_01_20_025842) do
     t.integer "status", null: false
     t.integer "shipping_cost", null: false
     t.string "address", null: false
-    t.string "address_unmber", null: false
+    t.string "address_number", null: false
     t.string "address_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
