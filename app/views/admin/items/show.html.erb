@@ -20,11 +20,15 @@
         <td class="border border-1 border-dark", style="width: 500px">ジャンル</td>
         <td class="border border-1 border-dark", style="width: 500px"><%= @item.genre.genre_name %></td></tr>
       <tr>
-       <td class="border border-1 border-dark", style="width: 500px">税抜価格<br>(税込価格)</td>
-       <td class="border border-1 border-dark", style="width: 500px"><%= @item.tax_free %>円<br>(<%= (@item.tax_free * 1.1).floor %>円)</td>
+       <td class="border border-1 border-dark", style="width: 500px">税込価格<br>(税抜価格)</td>
+       <td class="border border-1 border-dark", style="width: 500px"><%= (@item.tax_free * 1.1).floor %>(<%= @item.tax_free %>)円</td>
       <tr>
        <td class="border border-1 border-dark", style="width: 500px">販売ステータス</td>
-       <td class="border border-1 border-dark", style="width: 500px"><%= @item.is_active ? '販売中' : '販売停止中'  %></td>
+       <td class="border border-1 border-dark", style="width: 500px"><% if @item.is_active %>
+                                                                     <span class="text-success">販売中</span>
+                                                                     <% else @item.is_active %>
+                                                                     <span class="text-secondary">販売停止中</span>
+                                                                     <% end %></td>
     </tbody>
    </table>
 

@@ -1,14 +1,14 @@
 
-  <h2>ジャンル編集</h2>
+ <body>
+  <h5 class="alert-secondary d-inline-block font-weight-bold mb-5 ml-5 px-3">ジャンル編集</h5>
+     <div class="container rw-80 mx-auto">
   <%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
 
-   <div class="form-group">
-    <h5>ジャンル名</h5>
-     <%= f.text_area :genre_name %>
-   </div>
+   <div class="row">
+    <label class="col-md-2 col-sm-10 col-form-label w-100 d-inline">ジャンル名</label>
+      <div class="col-md-2 col-sm-10 d-inline"><%= f.text_field :genre_name, class: "form-control" %></div>
 
-   <div class="form-group">
-     <%= f.submit '変更を保存' %>
-   </div>
-
+   <div class="actions col-md-3"><%= f.submit '変更を保存', class:'btn btn-sm btn-success px-4 w-50' %></div>
 <% end %>
+   </div>
+ </body>
