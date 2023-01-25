@@ -1,21 +1,28 @@
 <!--<h1>Public::Items#index</h1>-->
-<h4>商品一覧</h4>
+<h3>商品一覧 (全<%= @items.count %>件) </h3>
 
-<!--ジャンル検索のテンプレートがどこかに入る-->
-<tbody>
-  <!--商品一覧-->
-  <% @items.each do |item| %>
-  <!--画像をクリックしたら詳細ページに遷移するようにする-->
-    <td>
-      <%= link_to item_path(item.id) do %>
-      <%= image_tag item.get_item_image(150,150) %><br>
-      <% end %>
-
-
-    </td>
-    <td><%= item.name %></td>
-    <td><%= (item.tax_free * 1.1).floor %></td>
-  <% end %>
-</tbody>
-<%#= image_tag item.image, size:"200x200" %>
+<div class="container">
+  <div class="d-flex flex-wrap"> <!--displayのd-->
+    <% @items.each do |item| %>
+      <div class="w-25"> <!--widthのw-->
+        <div>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_item_image(200,200) %><br>
+          <% end %>  
+        </div>
+        <div>
+          商品名
+          <%= item.name %>
+        </div>
+        <!--ジャンルいる？-->
+        <!--<div><%#= item.genre.genre_name %></div>-->
+        <div>
+          金額
+          ￥<%= (item.tax_free * 1.1).floor %>
+        </div>
+        
+      </div>
+    <% end %>
+  <div>
+</div>
 

@@ -1,16 +1,34 @@
 <div>
-    <p>
+  <p>
     ようこそ、ながのCAKEへ！<br>
     このサイトは、ケーキ販売のECサイトになります。<br>
     会員でない方も商品の閲覧は可能ですが、<br>
     購入には会員登録が必要になります。
-    </p>
+  </p>
 </div>
 
 <h2>新規商品</h2>
-<!--% items.each do |item| %>-->
-    <!--%= item.name %>-->
-    <!--%= item.price %>-->
-<!--% end %>-->
 
-<%= link_to "すべての商品を見る", items_path %>
+  <div class="container">
+    <div class="d-flex flex-wrap">
+      <% @items.each do |item| %>
+        <div class="w-25">
+          <div>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_item_image(200,200) %><br>
+            <% end %>
+          </div>
+
+          <div><%= item.name %></div>
+
+          <div>￥<%= (item.tax_free * 1.1).floor %></div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+  <div class="float-right test-box">
+    <%= link_to "すべての商品を見る", items_path %>
+ </div>
+

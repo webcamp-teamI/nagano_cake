@@ -15,17 +15,16 @@
     <tr>
      <% sum=0 %>
      <% @carts.each do |cart| %>
-     <%= form_with model: Cart, url: cart_path(cart.id), local: :patch do |f| %>
      <td><%= cart.item.name %></td>
      <td><%= cart.item.with_tax_price %></td>
-     <td><%= cart.count %></td>
-     <td><%= f.select :count, [[1], [2], [3], [4], [5]]  %></td>
-     <td><%= link_to "変更", cart_path(cart.id), method: :patch, "data-confirm" => "本当に変更しますか？" %></td>
+         <%= form_with model: cart, url: cart_path(cart.id), local: :patch do |f| %>
+     <td><%= f.select :count, [[1], [2], [3], [4], [5]]  %>
+         <%= f.submit '変更', "data-confirm" => "本当に更新しますか？" %></td>
+         <% end %>
      <td><%= cart.subtotal %></td>
      <td><%= link_to "削除する", cart_path(cart.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
          <% sum += cart.item.with_tax_price * cart.count %>
     </tr>
-     <% end %>
    <% end %>
 
    </tbody>
