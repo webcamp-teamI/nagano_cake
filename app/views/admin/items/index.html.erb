@@ -1,5 +1,8 @@
 <h6 class="alert-secondary d-inline-block font-weight-bold mb-3 mt-4 ml-5 px-3">商品一覧</h6>
    <!--一覧表示-->
+  <%= link_to new_admin_item_path, class:'float-right mt-3 mr-5 pr-5', style:'text-decoration:none;' do %>
+    <div class="h5 btn d-inline btn btn-outline-light shadow-sm rounded mr-5" style="color: black;">＋</div>
+  <% end %>
 
    <table class="table table-hover ml-auto mr-auto w-75">
     <thead class="alert-secondary border-bottom border-top border-secondary">
@@ -28,3 +31,9 @@
      <% end %>
     </tbody>
    </table>
+   
+   <nav aria-label="Page navigation">
+     <div class="pagination justify-content-center">
+       <%= paginate @items %>
+     </div>
+   </nav>
