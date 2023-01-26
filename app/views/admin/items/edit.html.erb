@@ -1,5 +1,5 @@
  <body>
-  <h5 class="alert-secondary d-inline-block font-weight-bold mb-5 ml-5 px-3">商品編集</h5>
+  <h5 class="alert-secondary d-inline-block font-weight-bold mt-4 mb-5 ml-5 px-3">商品編集</h5>
    <div class="container-fluid w-50 mx-auto">
    <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
    <div class="form-group row">
@@ -34,8 +34,9 @@
    <div class="form-group row">
      <label class="col-sm-2 col-form-label">税抜価格</label>
       <div class="col-lg-4">
-       <%= f.text_field :tax_free, class: "form-control" %>
+       <%= f.text_field :tax_free, class: "form-control d-inline" %>
       </div>
+      <div class="d-inline mt-2">円</div>
      </div>
 
    <div class="form-group row">
