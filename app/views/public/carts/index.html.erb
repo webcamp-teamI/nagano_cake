@@ -1,5 +1,5 @@
-<h1>ショッピングカート</h1>
-<td><%= link_to "カートを空にする", carts_destroy_all_path, method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+<div class="d-inline ml-5"></div><h6 class="alert-secondary d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold">ショッピングカート</h6>
+<div class="d-inline-block float-right"><%= link_to "カートを空にする", carts_destroy_all_path, class:'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
 
    <table class="table table-hover table-inverse">
     <thead>
@@ -19,15 +19,36 @@
      <td><%= cart.item.with_tax_price %></td>
          <%= form_with model: cart, url: cart_path(cart.id), local: :patch do |f| %>
      <td><%= f.select :count, [[1], [2], [3], [4], [5]]  %>
-         <%= f.submit '変更', "data-confirm" => "本当に更新しますか？" %></td>
+         <%= f.submit '変更', class:'btn btn-sm btn-success', "data-confirm" => "本当に更新しますか？" %></td>
          <% end %>
      <td><%= cart.subtotal %></td>
-     <td><%= link_to "削除する", cart_path(cart.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+     <td><%= link_to "削除する", cart_path(cart.id), class:'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
          <% sum += cart.item.with_tax_price * cart.count %>
     </tr>
    <% end %>
 
    </tbody>
   </table>
-   <h4>合計金額</h4>
-   <%= sum %>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to "買い物を続ける", root_path, class:'btn btn-sm btn-primary' %>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <th>合計金額</th>
+            <th><%= sum %></th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+   
+   
+   <div class="row justify-content-center">
+     <%= link_to "情報入力に進む", root_path, class:'btn btn-sm btn-success' %>
+   </div>
+   
