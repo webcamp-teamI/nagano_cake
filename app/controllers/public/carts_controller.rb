@@ -1,7 +1,7 @@
 class Public::CartsController < ApplicationController
 
   def index
-    @carts = Cart.all
+    @carts = current_customer.carts
   end
 
   def update
@@ -18,7 +18,7 @@ class Public::CartsController < ApplicationController
   end
 
   def destroy_all
-     @carts = Cart.all
+     @carts = current_customer.carts
      @carts.destroy_all
      redirect_to carts_path
   end
