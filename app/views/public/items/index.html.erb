@@ -9,7 +9,7 @@
       <div class="w-25"> <!--widthのw-->
         <div>
           <%= link_to item_path(item.id) do %>
-            <%= image_tag item.get_item_image(300,300) %><br>
+            <%= image_tag item.get_item_image(150,150) %><br>
           <% end %>
         </div>
         <div>
@@ -18,7 +18,7 @@
         </div>
         <div>
           金額
-          ￥<%= (item.tax_free * 1.1).floor %>
+          ￥<%= (item.tax_free * 1.1).floor.to_s(:delimited) %>
         </div>
       </div>
     <% end %>

@@ -17,7 +17,7 @@
       <h6 class="mb-1"><%= f.label :"メールアドレス" %></h6>
       <h6>会員ステータス</h6>
     </div>
-    
+
     <div class="col-md-10">
       <div class="mb-3"><%= @customer.id %></div>
     <div class="row">
@@ -35,15 +35,15 @@
       <div class="mb-2"><%= f.number_field :phone_number, autofocus: true, autocomplete: "phone_number" %></div>
       <div class="mb-2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
       <div class="mb-2">
-        <%= f.radio_button :is_end, "true" %>
+        <%= f.radio_button :is_end, "false" %>
         <%= f.label :is_end, "有効" %>
-        <%= f.radio_button :pis_end, "false" %>
-        <%= f.label :pis_end, "退会" %>
+        <%= f.radio_button :is_end, "true" %>
+        <%= f.label :is_end, "退会" %>
       </div>
       <div class="form-group">
       <%= f.submit '編集を保存', class:'btn btn-sm btn-success px-4', style:"width: 250px" %>
     </div>
   </div>
 </div>
-      
+
 <% end %>

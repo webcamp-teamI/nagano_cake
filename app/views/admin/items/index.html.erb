@@ -1,3 +1,4 @@
+
 <h6 class="alert-secondary d-inline-block font-weight-bold mb-3 mt-4 ml-5 px-3">商品一覧</h6>
    <!--一覧表示-->
   <%= link_to new_admin_item_path, class:'float-right mt-3 mr-5 pr-5', style:'text-decoration:none;' do %>
@@ -31,7 +32,7 @@
      <% end %>
     </tbody>
    </table>
-   
+
    <nav aria-label="Page navigation">
      <div class="pagination justify-content-center">
        <%= paginate @items %>

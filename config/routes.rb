@@ -16,8 +16,8 @@ Rails.application.routes.draw do
     get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:new, :create, :index, :show]
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
-    
-    
+
+
   end
 
   # 管理者側のルーティング設定
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index,:edit, :update, :show]
     resources :orders, only: [:show, :update]
-    resources :orders_details, only: [:update]
+    resources :order_details, only: [:update]
     # get 'items' => 'admin/items#index'
     # get 'items' => 'admin/items#show'
   end

@@ -42,9 +42,9 @@
       <td class="pl-2 pb-2 w-25">会員ステータス</td>
         <td class="pl-5 pb-2 w-75">
           <% if @customer.is_end == true %>
-            <div class="text-success">有効</div>
-          <% else %>
             <div>退会</div>
+          <% else %>
+            <div class="text-success">有効</div>
           <% end %>
         </td>
     </tr>
