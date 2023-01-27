@@ -1,6 +1,6 @@
-<div><h1>注文履歴一覧</h1></div>
-<table>
-  <thead>
+<div class="d-inline ml-5"></div><h6 class="alert-secondary d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold">注文履歴一覧</h6></div>
+<table class="table table-bordered mx-auto" style="width: 90%">
+  <thead class="table-secondary">
     <tr>
       <th>注文日</th>
       <th>配送先</th>
@@ -17,14 +17,15 @@
         <td><%= orders.address_number %>
             <%= orders.address %>
             <%= orders.address_name %></td>
+        <td>
           <% orders.order_details.each do |order_detail| %>
-            <td><%= order_detail.item.name %></td>
+            <%= order_detail.item.name %><br>
           <% end %>
-            <td><%= orders.payment %></td>
-            <td><%= orders.status_i18n %></td>
-            <td><%= link_to "表示する", order_path(orders.id) %></td>
-          <% end %>
+        </td>
+        <td><%= orders.payment %></td>
+        <td><%= orders.status_i18n %></td>
+        <td><%= link_to "表示する", order_path(orders.id), class:'btn btn-sm btn-primary' %></td>
+    <% end %>
     </tr>
   </tbody>
 </table>
-
