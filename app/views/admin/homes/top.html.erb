@@ -1,19 +1,32 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <div class='col-md-3'>
 
-    <div class="col-md-8 offset-md-1">
-      <h2>注文履歴一覧</h2>
-        <table class="table table-hover table-inverse">
-          <thead>
+      <h6 class="alert-secondary d-inline-block font-weight-bold mb-3 mt-4 ml-5 px-3">注文履歴一覧</h6>
+          <table class="ml-auto mr-auto w-75">
+          <thead class="alert-secondary border-bottom border-top border-secondary">
             <tr>
-              <td></td>
-              <td>購入日時</td>
-              <td>購入者</td>
-              <td>注文個数</td>
-              <th colspan="3"></th>
+              <th class="py-1">購入日時</th>
+              <th>購入者</th>
+              <th>注文個数</th>
+              <th>注文ステータス</th>
             </tr>
-
-            <tbody>
-            
           </thead>
+          <tbody class="border-bottom border-secondary font-weight-bold">
+            <% @orders.each do |order| %>
+            <tr>
+              <td class="py-1">
+                <!--注文履歴詳細画面へ飛びたいpublic/orders/show-->
+                <%= link_to admin_order_path(order.id) do %>
+                <%= order.created_at.strftime('%Y/%m/%d/%H:%M:%S') %>
+                <% end %>
+              </td>
+              <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+              <td><%= order.order_details.sum(:count) %> </td>
+              <td><%= order.status_i18n %></td>
+            <% end %>
+            </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+        <div class="pagination justify-content-center">
+          <%= paginate @orders %>
+        </div>
+        </nav>
