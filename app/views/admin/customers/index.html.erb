@@ -20,13 +20,22 @@
       </td>
       <td><%= customer.email %></td>
       <td>
-        <% customer.is_end ? '有効' : '退会' %>
+        <% if customer.is_end %>
+            <div>退会</div>
+          <% else %>
+            <div class="text-success">有効</div>
+          <% end %>
       </td>
     </tr>
       <% end %>
   </tbody>
 </table>
-<%= paginate @customers %>
+
+<nav aria-label="Page navigation">
+  <div class="pagination justify-content-center">
+    <%= paginate @customers %>
+  </div>
+</nav>
 
 
 

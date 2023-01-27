@@ -23,3 +23,11 @@
           waiting_for_production: "製作待ち"
           in_production: " 製作中"
           completion_of_production: "製作完了"
+
+      views:
+        pagination:
+          first: "≪Next "
+          previous: "<Last "
+          next: " Next>"
+          last: " Last≫"
+

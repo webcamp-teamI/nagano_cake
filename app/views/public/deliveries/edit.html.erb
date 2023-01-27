@@ -1,7 +1,7 @@
 <div class="d-inline ml-5 pl-5"></div>
 <h6 class="alert-secondary font-weight-bold d-inline-block ml-5 px-3 my-4">配送先編集</h6>
 
-<%= form_with model: Delivery, url:  delivery_path(@deliverie.id), method: :patch do |f| %>
+<%= form_with model: @deliverie, url:  delivery_path(@deliverie), method: :patch do |f| %>
 <%= f.hidden_field :customer_id, :value => current_customer.id %>
 
 <section class="container">
