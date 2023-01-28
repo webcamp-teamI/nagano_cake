@@ -63,6 +63,9 @@
         <% elsif customer_signed_in? %>
       <div class="collapse navbar-collapse justify-content-end">
           <ul class="navbar-nav ml-auto list-unstyled">
+            <li class="d-flex align-items-center">
+              ようこそ、<%= @customer.last_name %>さん！
+            </li>
             <li>
               <%= link_to customers_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
                 マイページ
