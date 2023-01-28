@@ -1,13 +1,13 @@
 <div class="d-inline ml-5"></div><h6 class="alert-secondary d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold">注文情報確認</h6><br>
 <div class="container">
   <div class="row">
-    
+
     <div class="col-md-9">
       <table class="table table-bordered">
         <thead class="table-secondary">
           <tr>
             <th>商品名</th>
-            <th>単価（税込み</th>
+            <th>単価（税込）</th>
             <th>数量</th>
             <th>小計</th>
           </tr>
@@ -28,7 +28,7 @@
       </tbody>
     </table>
     </div>
-    
+
     <div class="col-md-2">
       <table class="table table-bordered">
         <tr>
@@ -57,13 +57,13 @@
       <%= @order.pay_style_i18n %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-md-1 font-weight-bold">
       お届け先
     </div>
     <div class="col-md-4">
-      <%= @order.address %><%= @order.address_number %><br>
+      〒<%= @order.address_number %>  <%= @order.address %><br>
       <%= @order.address_name %>
     </div>
   </div>
