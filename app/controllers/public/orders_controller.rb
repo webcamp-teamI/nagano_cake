@@ -1,5 +1,9 @@
 class Public::OrdersController < ApplicationController
   def new
+     # カートが空だったら情報入力画面に遷移しない
+    if current_customer.carts.count == 0
+      redirect_to carts_path
+    end
     @order = Order.new
     @orders = current_customer
   end
@@ -65,10 +69,10 @@ class Public::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_items = @order.order_details
   end
-  
+
     private
   def order_params
     params.require(:order).permit(:pay_style, :shipping_cost, :address, :address_number, :address_name, :payment)
   end
-  
+
 end
