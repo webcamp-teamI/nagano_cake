@@ -28,6 +28,15 @@ def update
    redirect_to admin_item_path(@item.id)
 end
 
+  def search
+
+    if params[:name].present?
+      @items = Item.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @items = Item.all
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:image, :genre_id, :name, :detail, :tax_free, :is_active)

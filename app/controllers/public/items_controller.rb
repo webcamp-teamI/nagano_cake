@@ -10,4 +10,11 @@ class Public::ItemsController < ApplicationController
     @Cart = Cart.new
   end
 
+  def search
+
+    if params[:name].present?
+      @customers = Customer.looks(params[:search], params[:word])
+    end
+  end
+
 end

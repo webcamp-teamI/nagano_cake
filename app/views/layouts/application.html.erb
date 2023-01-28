@@ -55,7 +55,7 @@
             <li>
               <%= link_to destroy_admin_session_path, method: :delete,class: 'm-4 nav-link btn btn-outline-secondary' do %>
                 ログアウト
-              <% end %>
+              <% end %><%= render 'layouts/search' %>
             </li>
           </ul>
         </div>
@@ -86,9 +86,9 @@
                 ログアウト
               <% end %>
             </li>
-          </ul>
+          </ul> 
         </div>
-
+<!--render 'layouts/search' -->
         <% else %>
         <div class="collapse navbar-collapse justify-content-end">
           <ul class="navbar-nav ml-auto list-unstyled">
@@ -118,6 +118,7 @@
       </div>
     </nav>
   </div>
+  
 </header>
 
 <!--高さ指定-->
