@@ -26,8 +26,8 @@
 
       views:
         pagination:
-          first: "≪Next "
-          previous: "<Last "
+          first: "≪Next0000 "
+          previous: "<Last0000 "
           next: " Next>"
           last: " Last≫"
 
