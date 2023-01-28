@@ -5,3 +5,12 @@ body {
   font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
 
 }
+
+.info-text-box {
+    height: 400px;
+    background-image: url(../../assets/images/cake.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
