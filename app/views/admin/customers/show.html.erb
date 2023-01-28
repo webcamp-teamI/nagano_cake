@@ -1,4 +1,4 @@
-<h6 class="alert-secondary d-inline-block mb-4 mt-4 ml-5 px-3">
+<h6 class="d-inline-block mb-4 mt-4 ml-5 px-3" style="background-color: ghostwhite">
   <stronge class="font-weight-bold"><%= @customer.last_name %><%= @customer.first_name %></stronge>さんの<stronge class="font-weight-bold">会員詳細</stronge>
 </h6>
 
@@ -51,8 +51,8 @@
     <tr>
       <td></td>
       <td class="pl-5">
-        <%= link_to '編集する', edit_admin_customer_path(@customer), class:'btn btn-sm btn-success' %>
-        <%= link_to '注文履歴一覧を見る', admin_path, class:'btn btn-sm btn-primary ml-5' %>
+        <%= link_to '編集する', edit_admin_customer_path(@customer), class:'btn btn-sm', style:"background-color: #F3F1EA" %>
+        <%= link_to '注文履歴一覧を見る', admin_path, class:'btn btn-sm ml-5', style:"background-color: #F3F1EA" %>
       </td>
     </tr>
   </tbody>

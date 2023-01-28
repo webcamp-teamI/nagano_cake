@@ -1,5 +1,5 @@
  <body>
-  <h5 class="alert-secondary d-inline-block font-weight-bold mt-4 mb-5 ml-5 px-3">商品詳細</h5>
+  <h5 class="d-inline-block font-weight-bold mt-4 mb-5 ml-5 px-3" style="background-color: ghostwhite">商品詳細</h5>
 
    <div class="container w-75">
     <div class="row flex-nowrap">
@@ -7,7 +7,7 @@
       <%= image_tag @item.get_item_image(200,200) %>
      </div>
       <div class="col-md-6 col-sm-9">
-    <table class="table table-striped">
+    <table class="table">
 
      <tbody>
       <tr>
@@ -32,7 +32,7 @@
     </tbody>
    </table>
 
-      <%= link_to "編集する",edit_admin_item_path(@item.id), class:'btn btn-sm btn-success px-3 ml-3' %>
+      <%= link_to "編集する",edit_admin_item_path(@item.id), class:'btn btn-sm px-3 ml-3', style:"background-color: #F3F1EA" %>
 
     </div>
    </div>

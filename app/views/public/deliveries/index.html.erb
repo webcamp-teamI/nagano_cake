@@ -1,5 +1,5 @@
 <div class="d-inline ml-5 pl-5"></div>
-<h6 class="alert-secondary font-weight-bold d-inline-block ml-5 px-3 my-4">配送先登録/一覧</h6>
+<h6 class="font-weight-bold d-inline-block ml-5 px-3 my-4" style="background-color: ghostwhite">配送先登録/一覧</h6>
 
 <%= form_with model: Delivery, url: deliveries_path, local:true do |f| %>
 
@@ -20,14 +20,14 @@
     </div>
     
     <div class="col-md-4 col-sm-3 d-flex align-items-end">
-      <%= f.submit '新規登録', class:'btn btn-sm btn-success px-4 mb-5' %>
+      <%= f.submit '新規登録', class:'btn btn-sm px-4 mb-5', style:"background-color: #F3F1EA" %>
     </div>
   </div>
 </section>
   <% end %>
   
   <table class="table table-bordered ml-5", style="width:70%">
-    <thead class="table-secondary">
+    <thead style="background-color: ghostwhite">
       <tr>
         <th style="width:15% ">郵便番号</th>
         <th style="width:40% ">住所</th>  
@@ -42,7 +42,7 @@
         <td><%= delivery.address %></td>
         <td><%= delivery.address_name %></td>
         <td>
-          <%= link_to '編集する', edit_delivery_path(delivery.id), class:'btn btn-sm btn-success px-3' %>
+          <%= link_to '編集する', edit_delivery_path(delivery.id), class:'btn btn-sm px-3', style:"background-color: #F3F1EA" %>
           <%= link_to '削除する', delivery_path(delivery.id), method: :delete, class:'btn btn-sm btn-danger px-3' %>
         </td>
       </tr>

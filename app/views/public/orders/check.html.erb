@@ -1,10 +1,10 @@
-<div class="d-inline ml-5"></div><h6 class="alert-secondary d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold">注文情報確認</h6><br>
+<div class="d-inline ml-5"></div><h6 class="d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold" style="background-color: ghostwhite">注文情報確認</h6><br>
 <div class="container">
   <div class="row">
 
     <div class="col-md-9">
       <table class="table table-bordered">
-        <thead class="table-secondary">
+        <thead style="background-color: ghostwhite">
           <tr>
             <th>商品名</th>
             <th>単価（税込）</th>
@@ -32,15 +32,15 @@
     <div class="col-md-2">
       <table class="table table-bordered">
         <tr>
-          <th class="table-secondary">送料</th>
+          <th  style="background-color: ghostwhite">送料</th>
           <th><%= @order.shipping_cost %></th>
         </tr>
         <tr>
-          <th class="table-secondary">商品合計</th>
+          <th  style="background-color: ghostwhite">商品合計</th>
           <th><%= @total %></th>
         </tr>
         <tr>
-          <th class="table-secondary">請求金額</th>
+          <th  style="background-color: ghostwhite">請求金額</th>
           <th><%= @order.shipping_cost + @total %></th>
         </tr>
       </table>
@@ -77,7 +77,7 @@
       <%= f.hidden_field :address_number, :value => @order.address_number %>
       <%= f.hidden_field :address_name, :value => @order.address_name %>
       <%= f.hidden_field :payment, :value => @total + @order.shipping_cost %>
-      <%= f.submit '注文を確定する', class:'btn btn-sm btn-success px-3' %>
+      <%= f.submit '注文を確定する', class:'btn btn-sm  px-3', style:"background-color: #F3F1EA" %>
   <% end %>
   </div>
 
