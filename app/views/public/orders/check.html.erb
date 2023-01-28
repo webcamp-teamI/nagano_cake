@@ -7,7 +7,7 @@
         <thead class="table-secondary">
           <tr>
             <th>商品名</th>
-            <th>単価（税込み）</th>
+            <th>単価（税込み</th>
             <th>数量</th>
             <th>小計</th>
           </tr>
@@ -19,10 +19,10 @@
               <%= image_tag cart_item.item.get_item_image(40,40) %>
               <%= cart_item.item.name %>
             </td>
-            <td><%= cart_item.item.tax_free %></td>
+            <td><%= (cart_item.item.tax_free * 1.1).floor %></td>
             <td><%= cart_item.count %></td>
-            <td><%= cart_item.item.tax_free * cart_item.count %></td>
-          <% @total = cart_item.item.tax_free * cart_item.count + @total %>
+            <td><%= (cart_item.item.tax_free * 1.1).floor * cart_item.count %></td>
+          <% @total = (cart_item.item.tax_free * 1.1).floor * cart_item.count + @total %>
         </tr>
       <% end %>
       </tbody>
