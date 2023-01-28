@@ -1,5 +1,5 @@
  <body>
-  <h5 class="alert-secondary d-inline-block font-weight-bold mt-4 mb-5 ml-5 px-3">商品編集</h5>
+  <h5 class="d-inline-block font-weight-bold mt-4 mb-5 ml-5 px-3" style="background-color: ghostwhite">商品編集</h5>
    <div class="container-fluid w-50 mx-auto">
    <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
    <div class="form-group row">
@@ -50,7 +50,7 @@
    </div>
 
    <div class="actions">
-     <%= f.submit '変更を保存', class:'btn btn-sm btn-success px-4 w-25' %>
+     <%= f.submit '変更を保存', class:'btn btn-sm px-4 w-25', style:"background-color: #F3F1EA"  %>
    </div>
    <% end %>
   </div>

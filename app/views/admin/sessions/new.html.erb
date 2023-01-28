@@ -1,4 +1,4 @@
-<h6 class="alert-secondary d-inline-block font-weight-bold mb-5 ml-5 px-3 mt-4">管理者ログイン</h6>
+<h6 class="d-inline-block font-weight-bold mb-5 ml-5 px-3 mt-4" style="background-color: ghostwhite">管理者ログイン</h6>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field text-center">
     <%= f.label :"メールアドレス" %>
@@ -20,7 +20,7 @@
   <% end %>
 
   <div class="actions text-center mt-3">
-    <%= f.submit "ログイン", class:'btn btn-sm btn-primary px-4' %>
+    <%= f.submit "ログイン", class:'btn btn-sm px-4', style:"background-color: #F3F1EA" %>
   </div>
 <% end %>
 

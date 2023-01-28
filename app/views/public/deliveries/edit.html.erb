@@ -1,5 +1,5 @@
 <div class="d-inline ml-5 pl-5"></div>
-<h6 class="alert-secondary font-weight-bold d-inline-block ml-5 px-3 my-4">配送先編集</h6>
+<h6 class="font-weight-bold d-inline-block ml-5 px-3 my-4" style="background-color: ghostwhite">配送先編集</h6>
 
 <%= form_with model: @deliverie, url:  delivery_path(@deliverie), method: :patch do |f| %>
 <%= f.hidden_field :customer_id, :value => current_customer.id %>
@@ -19,7 +19,7 @@
     </div>
     
     <div class="col-md-4 col-sm-3 d-flex align-items-end">
-      <%= f.submit '変更内容を保存', class:'btn btn-sm btn-success px-4 mb-5' %>
+      <%= f.submit '変更内容を保存', class:'btn btn-sm px-4 mb-5', style:"background-color: #F3F1EA" %>
     </div>
   </div>
 </section>

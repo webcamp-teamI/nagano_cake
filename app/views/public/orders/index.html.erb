@@ -1,6 +1,6 @@
-<div class="d-inline ml-5"></div><h6 class="alert-secondary d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold">注文履歴一覧</h6></div>
+<div class="d-inline ml-5"></div><h6 class="d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold" style="background-color: ghostwhite">注文履歴一覧</h6></div>
 <table class="table table-bordered mx-auto" style="width: 90%">
-  <thead class="table-secondary">
+  <thead style="background-color: ghostwhite">
     <tr>
       <th>注文日</th>
       <th>配送先</th>
@@ -24,7 +24,7 @@
         </td>
         <td><%= orders.payment %></td>
         <td><%= orders.status_i18n %></td>
-        <td><%= link_to "表示する", order_path(orders.id), class:'btn btn-sm btn-primary' %></td>
+        <td><%= link_to "表示する", order_path(orders.id), class:'btn btn-sm', style:"background-color: #F3F1EA" %></td>
     <% end %>
     </tr>
   </tbody>

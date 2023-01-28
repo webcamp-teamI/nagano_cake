@@ -1,4 +1,4 @@
-<h5 class="alert-secondary d-inline-block font-weight-bold mb-5 ml-5 px-3 mt-4">新規会員登録</h5>
+<h5 class="d-inline-block font-weight-bold mb-5 ml-5 px-3 mt-4" style="background-color: ghostwhite">新規会員登録</h5>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
@@ -64,14 +64,14 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "新規登録", class:'btn btn-sm btn-success px-4 w-25' %>
+        <%= f.submit "新規登録", class:'btn btn-sm px-4 w-25', style:"background-color: #F3F1EA" %>
       </div>
     </div>
   </div>
 </div>
 
 <% end %>
-<h5 class="alert-secondary d-inline-block font-weight-bold px-3 ml-5">既に登録済みの方</h5>
+<h5 class="d-inline-block font-weight-bold px-3 ml-5" style="background-color: ghostwhite">既に登録済みの方</h5>
 <div class="ml-5 pl-5">
   <%= link_to 'こちら', new_customer_session_path %>からログインしてください。
 </div>

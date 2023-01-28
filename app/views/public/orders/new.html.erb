@@ -1,4 +1,4 @@
-<div class="d-inline ml-5"></div><h6 class="alert-secondary d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold">注文情報入力</h6>
+<div class="d-inline ml-5"></div><h6 class="d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold" style="background-color: ghostwhite">注文情報入力</h6>
 
 <%= form_with model: @order, url:orders_check_path, local:true do |f| %>
 
@@ -54,6 +54,6 @@
   </div>
   
   <div class="form-group row justify-content-center">
-    <%= f.submit '確認画面へ進む', class:'btn btn-sm btn-primary px-3' %>
+    <%= f.submit '確認画面へ進む', class:'btn btn-sm px-3', style:"background-color: #F3F1EA" %>
   </div>
   <% end %>
