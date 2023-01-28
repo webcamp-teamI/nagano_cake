@@ -59,9 +59,9 @@
           <tr>
           <% @order_items.each do |order_item| %>
             <td><%= order_item.item.name %></td>
-            <td><%= order_item.item.tax_free %></td>
+            <td><%= (order_item.item.tax_free * 1.1).floor %></td>
             <td><%= order_item.count %></td>
-            <td><%= order_item.item.tax_free * order_item.count %></td>
+            <td><%= (order_item.item.tax_free * 1.1).floor * order_item.count %></td>
           </tr>
           <% end %>
         </tbody>
