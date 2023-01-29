@@ -1,4 +1,6 @@
 class Public::ItemsController < ApplicationController
+    before_action :authenticate_customer!,except: [:index, :show, :search] #ログインしてる状態でもindexとshowページは見れる状態
+    
   def index
     @item = Item.new
     # @items = Item.all
