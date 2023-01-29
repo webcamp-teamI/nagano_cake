@@ -13,11 +13,9 @@
           <% end %>
         </div>
         <div>
-          商品名
           <%= item.name %>
         </div>
         <div>
-          金額
           ￥<%= (item.tax_free * 1.1).floor.to_s(:delimited) %>
         </div>
       </div>

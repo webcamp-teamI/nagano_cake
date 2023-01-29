@@ -1,4 +1,5 @@
 class Public::CartsController < ApplicationController
+  before_action :authenticate_customer! #ログインしていなかったらカートに追加できないようにするためログイン画面に遷移
 
   def index
     @carts = current_customer.carts
@@ -25,7 +26,7 @@ class Public::CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
-    @cart.customer_id=current_customer.id
+    @cart.customer_id=current_customer.id 
     @cart_items=current_customer.carts.all
      @cart_items.each do |cart_item|
       if cart_item.item_id==@cart.item_id
