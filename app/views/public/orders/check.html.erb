@@ -1,0 +1,83 @@
+<div class="d-inline ml-5"></div><h6 class="d-inline-block ml-5 px-3 mb-4 mt-4 font-weight-bold" style="background-color: ghostwhite">注文情報確認</h6><br>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-9">
+      <table class="table table-bordered">
+        <thead style="background-color: ghostwhite">
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+      <tbody>
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+            <td>
+              <%= image_tag cart_item.item.get_item_image(40,40) %>
+              <%= cart_item.item.name %>
+            </td>
+            <td><%= (cart_item.item.tax_free * 1.1).floor %></td>
+            <td><%= cart_item.count %></td>
+            <td><%= (cart_item.item.tax_free * 1.1).floor * cart_item.count %></td>
+          <% @total = (cart_item.item.tax_free * 1.1).floor * cart_item.count + @total %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="col-md-2">
+      <table class="table table-bordered">
+        <tr>
+          <th  style="background-color: ghostwhite">送料</th>
+          <th><%= @order.shipping_cost %></th>
+        </tr>
+        <tr>
+          <th  style="background-color: ghostwhite">商品合計</th>
+          <th><%= @total %></th>
+        </tr>
+        <tr>
+          <th  style="background-color: ghostwhite">請求金額</th>
+          <th><%= @order.shipping_cost + @total %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-1 font-weight-bold">
+      支払方法
+    </div>
+    <div class="col-md-2">
+      <%= @order.pay_style_i18n %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1 font-weight-bold">
+      お届け先
+    </div>
+    <div class="col-md-4">
+      〒<%= @order.address_number %>  <%= @order.address %><br>
+      <%= @order.address_name %>
+    </div>
+  </div>
+</div>
+
+  <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+    <div class="form-group row justify-content-center">
+      <%= f.hidden_field :shipping_cost, :value => @order.shipping_cost %>
+      <%= f.hidden_field :pay_style, :value => @order.pay_style %>
+      <%= f.hidden_field :address, :value => @order.address %>
+      <%= f.hidden_field :address_number, :value => @order.address_number %>
+      <%= f.hidden_field :address_name, :value => @order.address_name %>
+      <%= f.hidden_field :payment, :value => @total + @order.shipping_cost %>
+      <%= f.submit '注文を確定する', class:'btn btn-sm  px-3', style:"background-color: #F3F1EA" %>
+  <% end %>
+  </div>
+

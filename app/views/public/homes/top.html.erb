@@ -1,0 +1,34 @@
+
+<div class="my-5 container">
+  <div class="img-fluid text-center info-text-box">
+    <p class="pt-4">
+      ようこそ、ながのCAKEへ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧は可能ですが、<br>
+      購入には会員登録が必要になります。
+    </p>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1 row">
+      <p class="h5 col-lg-12 mt-3">新着商品</p>
+      <% @items.each do |item| %>
+
+        <div class="col-lg-3">
+          <div>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_item_image(150,150) %><br>
+            <% end %>
+          </div>
+          <div><%= item.name %></div>
+          <div>￥<%= (item.tax_free * 1.1).floor %></div>
+        </div>
+      <% end %>
+    </div>
+    </div>
+  <div class="float-right test-box">
+    
+    <%= link_to "すべての商品を見る", items_path %>
+  </div>
+</div>
+

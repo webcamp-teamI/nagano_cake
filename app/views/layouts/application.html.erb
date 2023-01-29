@@ -6,11 +6,159 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<body>
+<header style="width: 100%; background-color: #F3F1EA">
+  <div>
+    <nav class="navbar navbar-expand-sm">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="container-fluid">
+        <% if customer_signed_in? %>
+          <%= link_to root_path, class:'navbar-brand' do %>
+            <%= image_tag "Nagano Cake-logos.png", width: "160%", height: "80px" %>
+          <% end %>
+        <% else %>
+          <%= image_tag "Nagano Cake-logos.png", width: "10%", height: "80px" %>
+        <% end %>
+
+        <% if admin_signed_in? %>
+        <div class="justify-content-end">
+          
+          <ul class="navbar-nav list-unstyled">
+          <!--text-light（文字色）lightを変更しました-->
+            <li>
+              <%=  link_to admin_items_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                商品一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_customers_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                会員一覧
+              <% end %>
+            </li>
+            <li>
+              <%=  link_to admin_path ,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                注文履歴一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_genres_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                ジャンル一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                ログアウト
+                <% end %>
+            </li>
+          </ul>
+          <div class="float-right">
+            <%= render 'layouts/search' %>
+          </div>
+        </div>
+
+        <% elsif customer_signed_in? %>
+      <div class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav ml-auto list-unstyled">
+            <li class="d-flex align-items-center">
+              ようこそ、<%= @customer.last_name %>さん！
+            </li>
+            <li>
+              <%= link_to customers_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                マイページ
+              <% end %>
+            </li>
+            <li>
+              <%=  link_to items_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                商品一覧
+            <% end %>
+            </li>
+            <li>
+              <%=  link_to carts_path ,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                カート
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_customer_session_path, method: :delete,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                ログアウト
+              <% end %>
+            </li>
+          </ul> 
+        </div>
+<!--render 'layouts/search' -->
+        <% else %>
+        <div class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav ml-auto list-unstyled">
+            <li>
+              <%= link_to about_path,class: 'm-4 nav-link btn btn-outline-secondary' do %> <!--marginのx軸＝mx-1-->
+                About
+              <% end %>
+            </li>
+            <li>
+              <%= link_to items_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                商品一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_customer_registration_path,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_customer_session_path ,class: 'm-4 nav-link btn btn-outline-secondary' do %>
+                ログイン
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+    </nav>
+  </div>
+  
+</header>
+
+<!--高さ指定-->
+<main style='min-height: 350px'>
+  <%= yield %>
+  
+</main>
+
+<footer>
+  <div class="w-100 mt-5 mb-5" style="background-color: #F3F1EA; height: 70px"></div>
+  <div class="container small my-5 pt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-3">
+        <%= image_tag "Nagano Cake-logos.png", width: "60%", height: "80px" %>
+      </div>
+      <div class="col-md-2">
+        <p>配送・支払い方法</p>
+        <p>ご利用ガイド</p>
+        <p>お問い合わせ</p>
+      </div>
+      <div class="col-md-2">
+        <p>よくあるご質問</p>
+        <p>プライバシーポリシー</p>
+        <p>特定商取引法に基づく表記</p>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4" style="font-size: 5px;">
+      ©2023 Nagano Cake official online store
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+</footer>
+</body>
+

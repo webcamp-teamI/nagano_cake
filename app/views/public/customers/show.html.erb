@@ -1,0 +1,47 @@
+<div class="d-inline ml-5"></div><h6 class="d-inline-block ml-5 px-3 mb-4 mt-4" style="background-color: ghostwhite">マイページ</h6><br>
+
+<h6 class="font-weight-bold d-inline-block ml-5">登録情報</h6>
+
+<%= link_to '編集する', edit_customers_path, class:'btn btn-sm px-3 ml-3', style:"background-color: #F3F1EA" %>
+
+<table class="font-weight-bold mt-3 ml-5 small">
+  <thead>
+    <tr>
+      <th></th>
+      <th style="width: 400px"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class=" border border-1 border-dark py-2" style="background-color: ghostwhite">氏名</td>
+      <td class="border border-1 border-dark", style="width: 400px"><%= @customer.last_name %>　<%= @customer.first_name %></td>
+    </tr>
+    <tr>
+      <td class=" border border-1 border-dark py-2" style="background-color: ghostwhite">カナ</td>
+      <td class="border border-1 border-dark", style="width: 400px"><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+    </tr>
+    <tr>
+      <td class="border border-1 border-dark py-2" style="background-color: ghostwhite">郵便番号</td>
+      <td class="border border-1 border-dark", style="width: 400px"><%= @customer.address_number %></td>
+    </tr>
+    <tr>
+      <td class="border border-1 border-dark py-2" style="background-color: ghostwhite">住所</td>
+      <td class="border border-1 border-dark", style="width: 400px"><%= @customer.address %></td></tr>    
+    <tr>
+      <td class="border border-1 border-dark py-2" style="background-color: ghostwhite">電話番号</td>
+      <td class="border border-1 border-dark", style="width: 400px"><%= @customer.phone_number %></td>
+    </tr>    
+    <tr>
+      <td class="border border-1 border-dark py-2" style="background-color: ghostwhite">メールアドレス</td>
+      <td class="border border-1 border-dark", style="width: 400px"><%= @customer.email %></td>
+    </tr>    
+    
+  </tbody>
+</table>
+
+
+
+<h6 class="font-weight-bold d-inline-block ml-5 mr-3 mt-4">配送先</h6> 
+<%= link_to '一覧を見る', deliveries_path, class:'btn btn-sm px-4 ml-3', style:"background-color: #F3F1EA" %><br>
+<h6 class="font-weight-bold d-inline-block ml-5 mt-4">注文履歴</h6> 
+<%= link_to '一覧を見る', orders_path, class:'btn btn-sm px-4 ml-3', style:"background-color: #F3F1EA" %>

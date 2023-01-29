@@ -1,0 +1,61 @@
+<h6 class="d-inline-block mb-4 mt-4 ml-5 px-3" style="background-color: ghostwhite">
+  <stronge class="font-weight-bold"><%= @customer.last_name %><%= @customer.first_name %></stronge>さんの<stronge class="font-weight-bold">会員詳細</stronge>
+</h6>
+
+<table class="ml-5 small font-weight-bold">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="pl-2 pb-2 w-25">会員ID</td>
+      <td class="pl-5 pb-2 w-75"><%= @customer.id %></td>
+    </tr>
+    <tr>
+      <td class="pl-2 pb-2 w-25">氏名</td>
+      <td class="pl-5 pb-2 w-75"><%= @customer.last_name %>　<%= @customer.first_name %></td>
+    </tr>
+    <tr>
+      <td class="pl-2 pb-2 w-25">フリガナ</td>
+      <td class="pl-5 pb-2 w-75"><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+    </tr>
+    <tr>
+      <td class="pl-2 pb-2 w-25">郵便番号</td>
+      <td class="pl-5 pb-2 w-75"><%= @customer.address_number %></td>
+    </tr>
+    <tr>
+      <td class="pl-2 pb-2 w-25">住所</td>
+      <td class="pl-5 pb-2 w-75"><%= @customer.address %></td>
+    </tr>    
+    <tr>
+      <td class="pl-2 pb-2 w-25">電話番号</td>
+      <td class="pl-5 pb-2 w-75"><%= @customer.phone_number %></td>
+    </tr>    
+    <tr>
+      <td class="pl-2 pb-2 w-25">メールアドレス</td>
+      <td class="pl-5 pb-2 w-75"><%= @customer.email %></td>
+    </tr>    
+    <tr>
+      <td class="pl-2 pb-2 w-25">会員ステータス</td>
+        <td class="pl-5 pb-2 w-75">
+          <% if @customer.is_end == true %>
+            <div>退会</div>
+          <% else %>
+            <div class="text-success">有効</div>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="pl-5">
+        <%= link_to '編集する', edit_admin_customer_path(@customer), class:'btn btn-sm', style:"background-color: #F3F1EA" %>
+        <%= link_to '注文履歴一覧を見る', admin_path, class:'btn btn-sm ml-5', style:"background-color: #F3F1EA" %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
