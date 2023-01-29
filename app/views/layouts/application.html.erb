@@ -11,8 +11,8 @@
   </head>
 
 <body>
-<header style="width: 100%;">
-  <div class="border-dark" style="border-bottom: 3px solid">
+<header style="width: 100%; background-color: #F3F1EA">
+  <div>
     <nav class="navbar navbar-expand-sm">
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,8 @@
         <% end %>
 
         <% if admin_signed_in? %>
-        <div class="collapse navbar-collapse justify-content-end">
+        <div class="justify-content-end">
+          
           <ul class="navbar-nav list-unstyled">
           <!--text-light（文字色）lightを変更しました-->
             <li>
@@ -55,9 +56,12 @@
             <li>
               <%= link_to destroy_admin_session_path, method: :delete,class: 'm-4 nav-link btn btn-outline-secondary' do %>
                 ログアウト
-              <% end %><%= render 'layouts/search' %>
+                <% end %>
             </li>
           </ul>
+          <div class="float-right">
+            <%= render 'layouts/search' %>
+          </div>
         </div>
 
         <% elsif customer_signed_in? %>
@@ -124,11 +128,37 @@
 <!--高さ指定-->
 <main style='min-height: 350px'>
   <%= yield %>
+  
 </main>
 
 <footer>
-  <!--高さを固定したい場合h-25-->
-  <div class="border-dark mt-4" style="border-top: 3px solid; height: 100px"></div>
+  <div class="w-100 mt-5 mb-5" style="background-color: #F3F1EA; height: 70px"></div>
+  <div class="container small my-5 pt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-3">
+        <%= image_tag "Nagano Cake-logos.png", width: "60%", height: "80px" %>
+      </div>
+      <div class="col-md-2">
+        <p>配送・支払い方法</p>
+        <p>ご利用ガイド</p>
+        <p>お問い合わせ</p>
+      </div>
+      <div class="col-md-2">
+        <p>よくあるご質問</p>
+        <p>プライバシーポリシー</p>
+        <p>特定商取引法に基づく表記</p>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4" style="font-size: 5px;">
+      ©2023 Nagano Cake official online store
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
 </footer>
 </body>
 
